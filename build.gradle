@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+version = '0.0.1'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'ar.com.hjg:pngj:2.1.0'
+}

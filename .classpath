@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/jedidiah/.gradle/caches/modules-2/files-2.1/ar.com.hjg/pngj/2.1.0/b9a0d5cca5108431c4068976e795d4d2766dab5b/pngj-2.1.0.jar" sourcepath="/home/jedidiah/.gradle/caches/modules-2/files-2.1/ar.com.hjg/pngj/2.1.0/7c0a55c21325fa3eddec74cb5dbe9f93d7653fc1/pngj-2.1.0-sources.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
