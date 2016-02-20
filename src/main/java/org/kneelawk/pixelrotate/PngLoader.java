@@ -32,14 +32,15 @@ public class PngLoader implements PixelProvider {
 	}
 
 	public KColor getPixel(double x, double y) {
-		if (x < 0)
-			x = 0;
-		if (y < 0)
-			y = 0;
-		if (x >= info.cols)
-			x = info.cols - 1;
-		if (y >= info.rows)
-			y = info.rows - 1;
-		return data[(int) Math.floor(y)][(int) Math.floor(x)];
+		int nx = (int) Math.floor(x), ny = (int) Math.floor(y);
+		if (nx < 0)
+			nx = 0;
+		if (ny < 0)
+			ny = 0;
+		if (nx >= info.cols)
+			nx = info.cols - 1;
+		if (ny >= info.rows)
+			ny = info.rows - 1;
+		return data[ny][nx];
 	}
 }
