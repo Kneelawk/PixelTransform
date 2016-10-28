@@ -24,25 +24,9 @@ public class WrappingProvider implements PixelProvider {
 	@Override
 	public KColor getPixel(double x, double y) {
 		if (x < minX || x >= maxX)
-			x = mod2(x, minX, maxX);
+			x = MathUtils.mod2(x, minX, maxX);
 		if (y < minY || y >= maxY)
-			y = mod2(x, minY, maxY);
+			y = MathUtils.mod2(x, minY, maxY);
 		return prov.getPixel(x, y);
-	}
-
-	public static double mod2(double value, double min, double max) {
-		double size = max - min;
-		if (size == 0)
-			throw new IllegalArgumentException(
-					"min and max can not have the same value");
-		if (size < 0)
-			throw new IllegalArgumentException(
-					"min can not have a value grater than max");
-		if (value < min || value >= max) {
-			double quot = (value - min) / size;
-			quot -= Math.floor(quot);
-			value = (size * quot) + min;
-		}
-		return value;
 	}
 }

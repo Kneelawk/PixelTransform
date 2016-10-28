@@ -1,13 +1,14 @@
 package org.kneelawk.pixelrotate;
 
 import java.io.File;
+import java.util.Arrays;
 
 import ar.com.hjg.pngj.ImageInfo;
 import ar.com.hjg.pngj.ImageLineHelper;
 import ar.com.hjg.pngj.ImageLineInt;
 import ar.com.hjg.pngj.PngWriter;
 
-public class PngStore {
+public class PngStore implements PixelSink {
 	private PngWriter writer;
 	private ImageInfo info;
 
@@ -19,8 +20,21 @@ public class PngStore {
 		data = new KColor[height][width];
 	}
 
-	public void setPixel(float x, float y, KColor color) {
+	public PngStore(File file, int width, int height, KColor defaultColor) {
+		this(file, width, height);
+		for (int y = 0; y < height; y++) {
+			Arrays.fill(data[y], defaultColor);
+		}
+	}
+
+	@Override
+	public void setPixel(double x, double y, KColor color) {
 		data[(int) y][(int) x] = color;
+	}
+
+	@Override
+	public KColor getPixel(double x, double y) {
+		return data[(int) y][(int) x];
 	}
 
 	public void store() {
